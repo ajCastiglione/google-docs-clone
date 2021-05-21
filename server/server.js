@@ -1,3 +1,5 @@
+require("./config/url");
+
 const mongoose = require("mongoose");
 const Document = require("./Document");
 
