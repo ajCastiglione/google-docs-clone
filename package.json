@@ -1,0 +1,20 @@
+{
+    "name": "google-docs-clone",
+    "version": "1.0.0",
+    "description": "Currently only can be run locally and working on setting this up for deployment.",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server/server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ajCastiglione/google-docs-clone.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ajCastiglione/google-docs-clone/issues"
+    },
+    "homepage": "https://github.com/ajCastiglione/google-docs-clone#readme"
+}
