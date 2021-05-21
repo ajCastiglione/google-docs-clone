@@ -1,20 +1,20 @@
 {
-    "name": "google-docs-clone",
+    "name": "server",
     "version": "1.0.0",
-    "description": "Currently only can be run locally and working on setting this up for deployment.",
+    "description": "",
     "main": "server.js",
     "scripts": {
-        "start": "node server/server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/ajCastiglione/google-docs-clone.git"
+        "start": "node server.js",
+        "dev": "nodemon server.js"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/ajCastiglione/google-docs-clone/issues"
+    "dependencies": {
+        "mongoose": "^5.12.4",
+        "socket.io": "^4.1.2"
     },
-    "homepage": "https://github.com/ajCastiglione/google-docs-clone#readme"
+    "devDependencies": {
+        "nodemon": "^2.0.7"
+    }
 }
