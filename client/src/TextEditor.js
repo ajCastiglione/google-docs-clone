@@ -4,6 +4,8 @@ import "quill/dist/quill.snow.css";
 import { io } from "socket.io-client";
 import { useParams } from "react-router-dom";
 
+import { getUrl as url } from "./config/url";
+
 const SAVE_INTERVAL = 2000;
 const TOOLBAR_OPTIONS = [
     [{ header: [1, 2, 3, 4, 5, 6, false] }],
@@ -23,7 +25,7 @@ export default function TextEditor() {
     const [quill, setQuill] = useState();
 
     useEffect(() => {
-        const s = io("http://localhost:3001");
+        const s = io(url());
         setSocket(s);
 
         return () => {
