@@ -1,10 +1,16 @@
 require("./config/url");
 
+if (!process.env.NODE_ENV) {
+    require("./config/db");
+}
+
+const PORT = process.env.PORT || 3001;
+
 const mongoose = require("mongoose");
 const Document = require("./Document");
 
 mongoose
-    .connect("mongodb://localhost/google-docs-clone", {
+    .connect(process.env.MONGOURI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,
@@ -14,9 +20,9 @@ mongoose
         console.log("cannot connect to db \n", e);
     });
 
-const io = require("socket.io")(3001, {
+const io = require("socket.io")(PORT, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: process.env.URL,
         methods: ["GET", "POST"],
     },
 });
