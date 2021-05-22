@@ -12,7 +12,7 @@ node_modules
 build
 
 # configs
-*/*/db.js
+
 
 # misc
 .DS_Store
