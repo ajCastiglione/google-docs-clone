@@ -24,15 +24,18 @@ export default function TextEditor() {
     const [socket, setSocket] = useState();
     const [quill, setQuill] = useState();
 
+    // Connect to a new socket.
     useEffect(() => {
         const s = io(url());
         setSocket(s);
 
+        // Disconnect after unmount.
         return () => {
             s.disconnect();
         };
     }, []);
 
+    // Load the document from the server.
     useEffect(() => {
         if (socket == null || quill == null) return;
 
@@ -44,6 +47,7 @@ export default function TextEditor() {
         socket.emit("get-document", documentId);
     }, [socket, quill, documentId]);
 
+    // Save the document at the defined interval.
     useEffect(() => {
         if (socket == null || quill == null) return;
 
@@ -56,6 +60,7 @@ export default function TextEditor() {
         };
     }, [socket, quill]);
 
+    // Update the document if a user changes it.
     useEffect(() => {
         if (socket == null || quill == null) return;
 
@@ -70,24 +75,31 @@ export default function TextEditor() {
         };
     }, [socket, quill]);
 
+    // Save changes on user input. 
     useEffect(() => {
+        // Ensure that the quill & socket instance are initialized.
         if (socket == null || quill == null) return;
 
         const handler = (delta, oldDelta, source) => {
+            // Check that it was user input.
             if (source !== "user") return;
             socket.emit("send-changes", delta);
         };
 
         quill.on("text-change", handler);
 
+        // Remove listener on unmount.
         return () => {
             quill.off("text-change", handler);
         };
     }, [socket, quill]);
 
+    // Use memoized callback to prevent re-rendering.
     const wrapperRef = useCallback((wrapper) => {
+        // Ensure wrapper is defined before setting quill.
         if (wrapper == null) return;
 
+        // Clear wrapper before setting quill.
         wrapper.innerHTML = "";
         const editor = document.createElement("div");
 
@@ -99,6 +111,8 @@ export default function TextEditor() {
                 toolbar: TOOLBAR_OPTIONS,
             },
         });
+
+        // Disable editor while loading.
         q.disable();
         q.setText("Loading...");
         setQuill(q);

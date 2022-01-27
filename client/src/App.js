@@ -17,6 +17,7 @@ function App() {
                 <Route path="/documents/:id">
                     <TextEditor />
                 </Route>
+                {/* If no ID is provided, redirect to a new session. */}
                 <Route path="/documents">
                     <Redirect to={`/documents/${v4()}`} />
                 </Route>
