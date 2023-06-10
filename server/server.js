@@ -23,7 +23,7 @@ mongoose
 
 const io = require("socket.io")(PORT, {
     cors: {
-        origin: process.env.URL,
+        origin: '*',
         methods: ["GET", "POST"],
     },
 });

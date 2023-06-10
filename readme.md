@@ -19,6 +19,7 @@ Built to replicate the usability of Google docs.
 
 # Start the application
 <ul>
+<li>Run <code>npm install</code> in the root directory and the <code>/client</code> directory</li>
 <li>Run <code>npm run dev</code> in root directory to start local development instance</li>
 <li>Open localhost on port 3000 to view the document</li>
 </ul>
