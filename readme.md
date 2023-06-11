@@ -1,25 +1,22 @@
 # Google Docs Clone
 
-Built to replicate the usability of Google docs.
+Built to replicate the live document editing experience of Google docs.
 
 ## Requirements
 
 1. Mongo DB
-2. Node (12.13.0 +)
+2. Node (16.x)
 
 ## Features
 
-<ul>
-<li>Unique IDs per session</li>
-<li>Live updates if a URL is shared with another user</li>
-<li>Saves every 2 seconds to instance based on URL ID</li>
-<li>Rich text editor from QuillJS</li>
-<li>Print friendly</li>
-</ul>
+- Unique IDs per session
+- Live updates if a URL is shared with another user
+- Saves every 2 seconds to instance based on URL ID
+- Rich text editor from QuillJS
+- Print friendly
 
 # Start the application
-<ul>
-<li>Run <code>npm install</code> in the root directory and the <code>/client</code> directory</li>
-<li>Run <code>npm run dev</code> in root directory to start local development instance</li>
-<li>Open localhost on port 3000 to view the document</li>
-</ul>
+
+- Run `npm install` in the root directory and the `/client` directory
+- Run `npm run dev` in root directory to start local development instance. This will start the server and client concurrently
+- Open `localhost:3000` to view the document (if it doesn't open automatically)
